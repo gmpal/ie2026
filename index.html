@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Digital Twins & AI - WEL-T Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css" id="theme">
+    <style>
+        .welt-banner {
+            background-color: #007465;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.65em;
+            margin-top: 40px;
+            border-left: 5px solid #56C556;
+        }
+
+        .highlight {
+            color: #56C556;
+        }
+
+        .layer-list li {
+            margin-bottom: 10px;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .logo-row img {
+            height: 60px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .speaker-bio {
+            font-size: 0.6em;
+            text-align: left;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #007465;
+            color: white;
+            border-radius: 4px;
+            padding: 2px 8px;
+            margin: 2px;
+            display: inline-block;
+            font-size: 0.85em;
+        }
+
+        .mlg-pill {
+            background: rgba(86,197,86,0.15);
+            border: 1px solid #56C556;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 6px 0;
+            font-size: 0.6em;
+            text-align: left;
+        }
+
+        .mlg-pill strong {
+            color: #56C556;
+        }
+
+
+        /* --- FULLBLEED QUESTION SLIDES --- */
+        .reveal .slides section.dt-question-slide {
+            background: transparent !important;
+            padding: 0 60px 20px !important;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Overlay — section is position:absolute (reveal.js), so inset:0 fills it */
+        .reveal .slides section.dt-question-slide .dt-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Content in normal flex flow, above overlay */
+        .reveal .slides section.dt-question-slide .dt-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.15em;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1 -->
+            <section>
+                <h3>Digital Twins & <span class="highlight">AI</span></h3>
+                <h4>From Concept to Reality</h4>
+                <p><small>Building Intelligent Environments for a Sustainable Future</small></p>
+                <div class="welt-banner">
+                    <strong>Funded and Supported by the WEL Research Institute (WEL-T)</strong><br>
+                    Driving Walloon Excellence in Technology
+                </div>
+                <div class="logo-row" style="margin-top:24px;">
+                    <img src="assets/ulb.png" alt="ULB">
+                    <img src="assets/mlg.png" alt="MLG">
+                    <img src="assets/welt.png" alt="WEL-T">
+                </div>
+            </section>
+
+            <!-- Slide: About the Speaker -->
+            <section>
+                <h4>Myself: <span class="highlight">Gian Marco Paldino</span></h4>
+                <div class="speaker-bio">
+                    <p>Postdoctoral Researcher · <strong>Machine Learning Group, ULB</strong> · Ph.D. 2026</p>
+                    <p>Research focus: multivariate time series — causal inference, forecasting, anomaly detection, and
+                        <strong>Digital Twins</strong>.</p>
+                </div>
+                Today: 
+
+                <div class="welt-banner">
+                    VPP-Sim: A Modular Open-Source Framework for Developing and Deploying ML-Driven Strategies in Virtual Power Plants., Paldino, G.M. & Bontempi, G., ECML PKDD 2025
+                </div>
+
+            </section>
+
+            <!-- Slide: MLG & EDITS -->
+            <section>
+                <h4><span class="highlight">MLG-ULB</span> — What We Do</h4>
+                <p style="font-size:0.35em;">Founded in 2004 by Prof. Gianluca Bontempi, is currently co-headed by him and Prof. Tom Lenaerts. MLG targets machine learning and behavioral intelligence research on time series analysis, big data mining, causal inference, network inference, decision-making models and behavioral analysis</p>
+                <p style="font-size:0.65em;">The <strong>EDITS</strong> project (<em>Enhancing DIgital TwinS with scalable
+                        and interpretable AI</em>) — funded by <strong>WEL-T</strong></p>
+                <div class="mlg-pill"><strong>Energy Twin / VPP</strong> — Energy Communities,
+                    distributed energy management</div>
+                <div class="mlg-pill"><strong>Traffic Twin</strong> — Urban roadwork impact, Traffic Simulation</div>
+                <div class="mlg-pill"><strong>Human / Robotics Twin</strong> — EMG fatigue modelling, musculoskeletal
+                    rehabilitation</div>
+                <div class="mlg-pill"><strong>Causal AI</strong> — Transfer learning across
+                    assets, what-if &amp; counterfactual reasoning</div>
+                <div class="logo-row">
+                    <img src="assets/mlg.png" alt="MLG">
+                    <img src="assets/welt.png" alt="WEL-T">
+                </div>
+            </section>
+
+            <!-- Slide 3 -->
+            <section>
+                <h4>The EDITS Project & <span class="highlight">WEL-T</span></h4>
+                <ul>
+                    <li><strong>EDITS:</strong> Enhancing Digital Twins with Scalable & Interpretable AI.</li>
+                    <li>Made possible by funding from <strong>WEL-T</strong>.</li>
+                    <li><strong>Our Goal:</strong> Move Digital Twins from academic buzzwords to deployed, AI-driven
+                        solutions in Energy, Mobility, and Manufacturing.</li>
+                </ul>
+            </section>
+
+            <!-- Slide 2 -->
+            <section>
+                <h4>Agenda (2 Hours)</h4>
+                <table style="font-size: 0.7em; width: 100%;">
+                    <tr>
+                        <td style="color:#56C556;">14:00 - 14:20</td>
+                        <td>Theory: The Digital Twin Architecture</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#56C556;">14:20 - 14:50</td>
+                        <td>Hands-on 1: The Physical Twin (Data Generation)</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#56C556;">14:50 - 15:00</td>
+                        <td>10 minutes break</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#56C556;">15:00 - 15:20</td>
+                        <td>Hands-on 2: The Digital Brain (Machine Learning)</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#56C556;">15:20 - 16:00</td>
+                        <td>Hands-on 3: Closing the Loop (Optimization)</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#56C556;">If extra time</td>
+                        <td>Hands-on 4: Deployment (Docker)</td>
+                    </tr>
+                </table>
+                
+            </section>
+
+            
+
+<!-- ============================================
+     SLIDE 3a: IS THIS A DIGITAL TWIN? - DIGITAL MODEL
+     ============================================ -->
+<section class="dt-question-slide"
+    data-background-video="./assets/cad.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="cover">
+
+    <!-- Dark overlay — fades in on first click -->
+    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
+
+    <!-- Content layer -->
+    <div class="dt-content">
+
+        <div class="fragment fade-up" data-fragment-index="1" style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
+            A CAD model.
+        </div>
+
+        <div class="fragment fade-up" data-fragment-index="2" style="font-size:1.5em; font-weight:500; color:#fff;">
+            Is this a Digital Twin?
+        </div>
+
+        <div class="fragment fade-up" data-fragment-index="3" style="display:flex; flex-direction:column; align-items:center; gap:0;">
+            <span style="font-size:3.2em; font-weight:800; color:#eb811b; text-shadow:0 0 40px rgba(235,129,27,0.5);">NO</span>
+            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">This is a Digital Model</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================
+     SLIDE 3b: IS THIS A DIGITAL TWIN? - DIGITAL SHADOW
+     ============================================ -->
+<section class="dt-question-slide"
+    data-background-video="./assets/avatar.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="cover">
+
+    <!-- Dark overlay — fades in on first click -->
+    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
+
+    <!-- Content layer -->
+    <div class="dt-content">
+
+        <div class="fragment fade-up" data-fragment-index="1" style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
+            A movie made from real life sensors.<br>
+        </div>
+
+        <div class="fragment fade-up" data-fragment-index="2" style="font-size:1.5em; font-weight:500; color:#fff;">
+            Is this a Digital Twin?
+        </div>
+
+        <div class="fragment fade-up" data-fragment-index="3" style="display:flex; flex-direction:column; align-items:center; gap:0;">
+            <span style="font-size:3.2em; font-weight:800; color:#eb811b; text-shadow:0 0 40px rgba(235,129,27,0.5);">NO</span>
+            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">This is a Digital Shadow</span>
+        </div>
+
+    </div>
+</section>
+
+<section class="dt-question-slide"
+    data-background-video="./assets/hand.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="cover">
+
+    <!-- Dark overlay — fades in on first click -->
+    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
+
+    <!-- Content layer -->
+    <div class="dt-content">
+
+        <div class="fragment fade-up" data-fragment-index="1" style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
+            A robotic hand moving in real-time.<br>
+        </div>
+
+        <div class="fragment fade-up" data-fragment-index="2" style="font-size:1.5em; font-weight:500; color:#fff;">
+            Is this a Digital Twin?
+        </div>
+
+        <div class="fragment fade-up" data-fragment-index="3" style="display:flex; flex-direction:column; align-items:center; gap:0;">
+            <span style="font-size:3.2em; font-weight:800; color:#2e8b57; text-shadow:0 0 40px rgba(46,139,87,0.5);">YES</span>
+            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">Digital and physical inform each other continuously</span>
+        </div>
+
+    </div>
+</section>
+
+
+            <!-- Slide 4 -->
+            <section>
+                <h4>What is a <span class="highlight">Digital Twin?</span></h4>
+                <div style="display:flex; align-items:center; gap:30px; justify-content:center; margin-top:10px;">
+                    <!-- TikZ-equivalent SVG diagram -->
+                    <svg width="260" height="200" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                        <!-- Physical Asset box -->
+                        <rect x="55" y="130" width="150" height="55" rx="5" fill="none" stroke="#c8a96e" stroke-width="2"/>
+                        <text x="130" y="153" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Physical</text>
+                        <text x="130" y="170" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Asset</text>
+                        <!-- Digital Twin box -->
+                        <rect x="55" y="15" width="150" height="55" rx="5" fill="rgba(86,197,86,0.15)" stroke="#56C556" stroke-width="2"/>
+                        <text x="130" y="38" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Digital</text>
+                        <text x="130" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Twin</text>
+                        <!-- Arrow up: Data -->
+                        <line x1="155" y1="130" x2="155" y2="70" stroke="#56C556" stroke-width="2" marker-end="url(#arrowUp)"/>
+                        <text x="162" y="105" fill="#56C556" font-size="11">Data</text>
+                        <!-- Arrow down: Information -->
+                        <line x1="105" y1="70" x2="105" y2="130" stroke="#c8a96e" stroke-width="2" marker-end="url(#arrowDown)"/>
+                        <text x="18" y="105" fill="#c8a96e" font-size="11">Information</text>
+                        <!-- Arrowhead defs: tip points along local +x, orient="auto" rotates to match line -->
+                        <defs>
+                            <marker id="arrowUp" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#56C556"/>
+                            </marker>
+                            <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#c8a96e"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <ul style="font-size:0.7em; text-align:left;">
+                        <li>Not just a static 3D model.</li>
+                        <li><strong>Sensing:</strong> Data updates the virtual model.</li>
+                        <li><strong>Actuating:</strong> DT affects real-world decisions.</li>
+                        <li><strong>Digital Shadow:</strong> green arrow only. (e.g. </li>
+                        <li><strong>Digital Model:</strong> orange arrow only. (e.g. CAD tools)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 5 -->
+            <section>
+                <h4>The 5-Layer Architecture</h4>
+                <ol class="layer-list">
+                    <li><span class="highlight">Generation:</span> Sensors, IoT, Simulators</li>
+                    <li><span class="highlight">Streaming:</span> Kafka / Big Data</li>
+                    <li><span class="highlight">Storage:</span> Time-Series Databases</li>
+                    <li><span class="highlight">Processing:</span> Machine Learning & AI</li>
+                    <li><span class="highlight">Decision:</span> Dashboards & Optimization</li>
+                </ol>
+            </section>
+
+            <!-- Slide 6a: VPP Definition -->
+            <section>
+                <h4>Today's Use Case: The <span class="highlight">Virtual Power Plant</span></h4>
+                <blockquote style="font-size:0.65em; border-left:4px solid #56C556; padding-left:14px; margin:24px auto; text-align:center; max-width:85%;">
+                    A <strong>Virtual Power Plant (VPP)</strong> is a cloud-based distributed power plant that aggregates the capacities of heterogeneous distributed energy resources (DERs) — solar panels, wind turbines, battery storage, and flexible loads — and coordinates them as a single, dispatchable unit visible to the grid operator.
+                </blockquote>
+            </section>
+
+            <section>
+                <ul style="font-size:0.65em; text-align:left;">
+                    <li>No single physical location — exists as software + communication layer.</li>
+                    <li>Compensates for the <strong>intermittency</strong> of renewables by pooling complementary assets.</li>
+                    <li>Key metric: keep supply = demand at all times (grid frequency = 50 Hz).</li>
+                </ul>
+            </section>
+            
+            
+
+            <!-- Slide 6b: VPP Under the Hood -->
+            <section>
+                <h4>VPP — <span class="highlight">Under the Hood</span></h4>
+                <div style="display:flex; gap:20px; font-size:0.6em; text-align:left; margin-top:10px;">
+                    <div style="flex:1;">
+                        <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">Components</p>
+                        <ul>
+                            <li>☀️ Solar PV panels</li>
+                            <li>💨 Wind turbines</li>
+                            <li>🔋 Battery storage (BESS)</li>
+                            <li>🏭 Flexible industrial loads</li>
+                            <li>🏠 Smart-meter households</li>
+                        </ul>
+                    </div>
+                    <div style="flex:1;">
+                        <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">What the DT does</p>
+                        <ul>
+                            <li><strong>Forecasting:</strong> predict solar & wind output (LSTM, XGBoost)</li>
+                            <li><strong>Scheduling:</strong> charge/discharge battery optimally (LP/MPC)</li>
+                            <li><strong>Market participation:</strong> bid surplus into day-ahead markets</li>
+                            <li><strong>Fault detection:</strong> anomaly detection on sensor streams</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6c: Why VPP is a textbook DT -->
+            <section>
+                <h4>Why VPP is a <span class="highlight">Textbook Digital Twin</span></h4>
+                <div style="display:flex; align-items:center; gap:24px; justify-content:center; margin-top:10px;">
+                    <svg width="220" height="200" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                        <defs>
+                            <marker id="arrowUp2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#56C556"/>
+                            </marker>
+                            <marker id="arrowDown2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#c8a96e"/>
+                            </marker>
+                        </defs>
+                        <rect x="35" y="130" width="150" height="55" rx="5" fill="none" stroke="#c8a96e" stroke-width="2"/>
+                        <text x="110" y="151" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Physical VPP</text>
+                        <text x="110" y="168" text-anchor="middle" fill="#c8a96e" font-size="10">panels · turbines · batteries</text>
+                        <rect x="35" y="15" width="150" height="55" rx="5" fill="rgba(86,197,86,0.15)" stroke="#56C556" stroke-width="2"/>
+                        <text x="110" y="36" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Digital Twin</text>
+                        <text x="110" y="53" text-anchor="middle" fill="#56C556" font-size="10">forecast · optimise · decide</text>
+                        <line x1="135" y1="130" x2="135" y2="70" stroke="#56C556" stroke-width="2" marker-end="url(#arrowUp2)"/>
+                        <text x="140" y="105" fill="#56C556" font-size="10">sensor data</text>
+                        <line x1="85" y1="70" x2="85" y2="130" stroke="#c8a96e" stroke-width="2" marker-end="url(#arrowDown2)"/>
+                        <text x="0" y="98" fill="#c8a96e" font-size="10">dispatch</text>
+                        <text x="4" y="110" fill="#c8a96e" font-size="10">commands</text>
+                    </svg>
+                    <div style="font-size:0.58em; text-align:left;">
+                        <p style="color:#56C556; font-weight:bold; margin-bottom:6px;">Sensing (Physical → Digital)</p>
+                        <ul style="margin-bottom:12px;">
+                            <li>Solar irradiance &amp; wind speed → update forecast model</li>
+                            <li>Battery state-of-charge → update optimisation state</li>
+                            <li>Household consumption → update demand model</li>
+                        </ul>
+                        <p style="color:#c8a96e; font-weight:bold; margin-bottom:6px;">Actuating (Digital → Physical)</p>
+                        <ul>
+                            <li>Optimised schedule → commands inverters &amp; BESS</li>
+                            <li>Market bid → triggers real energy transactions</li>
+                            <li>Fault alert → triggers maintenance crew</li>
+                        </ul>
+                        <p style="margin-top:10px; color:#aaa;"><em>Both arrows active → true Digital Twin,<br>not just a shadow or a model.</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6d: Real-world deployments -->
+            <section>
+                <h4>VPP — <span class="highlight">Real-World Deployments</span></h4>
+                <div style="font-size:0.6em; text-align:left; margin-top:8px;">
+                    <div class="mlg-pill"><strong>Next Kraftwerke (Germany)</strong> — Europe's largest VPP, >14 GW aggregated capacity from 13 000+ assets. Trades energy on 9 European spot markets in real-time.</div>
+                    <div class="mlg-pill"><strong>Tesla Autobidder (Australia)</strong> — Hornsdale Power Reserve (150 MW / 194 MWh BESS). Automated battery dispatch saved the Australian grid ~$150 M AUD in frequency regulation costs (2018–2020).</div>
+                    <div class="mlg-pill"><strong>Ørsted / Danish TSO</strong> — Offshore wind VPP that curtails or ramps turbines within seconds to balance the national grid; integrates weather-forecast ML models updated every 15 min.</div>
+                </div>
+            </section>
+
+            <!-- Slide 7 -->
+            <section>
+                <h4>Let's Code!</h4>
+                <p>Open your Jupyter Notebooks.</p>
+                <p style="font-size: 0.7em; color: lightgray;">No deep programming experience required: we will tweak
+                    parameters, analyze the outputs together, and discuss the "What-Ifs".</p>
+            </section>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            progress: false,
+        });
+    </script>
+</body>
+
+</html>
