@@ -1,0 +1,52 @@
+Gian Marco Paldino is an accomplished Computer Science researcher currently working as a Postdoctoral Researcher at the Machine Learning Group of the Université Libre de Bruxelles (ULB), where he also earned his Ph.D. in 2026. His research primarily revolves around multivariate time series, focusing heavily on causal inference, forecasting, anomaly detection, and digital twins. Gian Marco holds dual M.Sc. degrees with high honors from both ULB and Politecnico di Milano. An active contributor to the scientific community, he boasts a strong publication record in top-tier journals (such as Expert Systems with Applications and International Journal of Forecasting) and maintains notable research metrics, including an h-index of 9 to 10 and over 325 citations. He further expands his academic footprint by supervising Master's students, delivering invited talks at prominent institutions like the Sorbonne, and undertaking a visiting research stay at the Amsterdam UMC to apply causal discovery methods to intensive care unit data.
+
+Complementing his theoretical foundation, Gian Marco possesses robust, end-to-end technical expertise in building production-ready machine learning systems. He is highly proficient in Python's data science ecosystem (PyTorch, TensorFlow, Scikit-learn), MLOps tools (Docker, AWS, Kafka, MLflow), and advanced causal inference frameworks. His practical capabilities are highlighted by multiple award-winning performances in competitive hackathons—including a second-place finish at the AI Cybersecurity DeepHack—and his development of open-source projects like VPP (a Virtual Power Plant simulation infrastructure) and TD2C (a library for causal discovery). Additionally, he brings significant administrative and industry-collaborative experience to his roles, having successfully led forecasting project proposals and engineered tailored machine learning solutions that outperform established industrial baselines.
+
+
+Based on the uploaded project presentations and proposal documents, the **Machine Learning Group (MLG)** at ULB is executing the **EDITS** project (*Enhancing DIgital TwinS with scalable and interpretable AI*), which is funded under the **WEL-T Advanced Investigator Programme** [extracted.md]. 
+
+The primary mission of MLG within this project is to bridge the gap between theoretical machine learning and the practical deployment of Digital Twins (DTs) by integrating physics-based modeling with adaptive, scalable, and causal AI [extracted.md].
+
+The work at MLG is organized into specific methodological pillars and practical case studies:
+
+---
+
+### I. Methodological & Technical Pillars
+
+1.  **Data Infrastructure & Streaming (Led by Carlo Fabrizio & Gianmarco Paldino)**
+    *   **Intelligent Databases:** Researching adaptive time-series databases (like TimescaleDB and InfluxDB) that utilize **Lifelong Learning (LL)** to prevent "catastrophic forgetting" and gracefully handle dataset shifts in high-fidelity streaming environments [extracted.md].
+    *   **Data Flow Orchestration:** Building a scalable, loosely coupled client-server architecture (using a Lambda architecture and message brokers like Apache Kafka) to ingest, pre-process, and store both real-world and synthetic data streams [extracted.md].
+
+2.  **Calibration, Data Assimilation & Learning (Led by Carlo Fabrizio & Pascal Tribel)**
+    *   Calibrating complex multi-physics models with high-dimensional streams of real data [extracted.md].
+    *   Integrating physical models with data-driven ML surrogate models (proxies of physical systems) to enable real-time tracking, even under non-stationary conditions and wear-and-tear [extracted.md].
+
+3.  **Foundational Models & Transfer Learning (Led by Cédric Simar)**
+    *   Developing "Foundational Models" for Digital Twins to avoid building virtual models from scratch [extracted.md].
+    *   Applying transfer learning so that a DT calibrated for one physical asset (e.g., a specific wind turbine or a city neighborhood) can transfer its learned dynamics to a new, similar asset [extracted.md].
+
+4.  **Causal Discovery & Counterfactual Reasoning (Led by Gianmarco Paldino)**
+    *   Moving beyond purely predictive AI to incorporate causal reasoning [extracted.md].
+    *   Enabling **"What-If" and counterfactual analysis**—giving the Digital Twin the ability to replay past configurations (like a traffic jam or a wind turbine fault) to evaluate how alternative human interventions or automated controls would have changed the outcome [extracted.md].
+
+---
+
+### II. Applied Case Studies
+
+To validate and assess this AI-driven methodology, MLG is deploying and testing Digital Twins across several real-world domains [extracted.md]:
+
+*   **1. Energy Twin / Virtual Power Plant (VPP) (Gianmarco Paldino)**
+    *   Developing DT architectures to manage distributed energy resources (solar, wind, load, batteries) [extracted.md].
+    *   Utilizing multivariate forecasting to predict community-level energy dynamics and running linear programming to optimize battery scheduling, reducing energy costs and balancing the grid [extracted.md].
+    *   Simulating wind farm operations under extreme weather to predict maintenance needs and assess risk [extracted.md].
+
+*   **2. Traffic Twin / Mobility (Eladio Montero Porras)**
+    *   Evaluating the impact of urban roadworks, events, and detours on vehicular traffic in Brussels and Namur [extracted.md].
+    *   Combining real-world sensor data with micro-simulations (using the SUMO simulator) to assist public authorities and mobility managers in selecting optimal road deviation plans [extracted.md].
+
+*   **3. Robotics & Rehabilitation / Human Twin (Cédric Simar)**
+    *   *Collaborative Robotics:* Creating a digital twin for workstations where a physical robotic arm assists workers. The twin collects biosignal (EMG) fatigue data and runs what-if scenarios to determine real-time support strategies [extracted.md].
+    *   *Rehabilitation:* Building subject-specific musculoskeletal models using motion tracking and EMG data to help therapists identify rehabilitation exercises that minimize injury risk [extracted.md].
+
+*   **4. Toy Case Studies**
+    *   Utilizing simplified systems—such as the digital twin of a laboratory plant—to define and test core DT methodologies through master's thesis research [extracted.md].

@@ -59,12 +59,12 @@
         }
 
         .mlg-pill {
-            background: rgba(86,197,86,0.15);
+            background: rgba(86, 197, 86, 0.15);
             border: 1px solid #56C556;
             border-radius: 6px;
             padding: 8px 12px;
             margin: 6px 0;
-            font-size: 0.6em;
+            font-size: 1em;
             text-align: left;
         }
 
@@ -87,7 +87,10 @@
         /* Overlay — section is position:absolute (reveal.js), so inset:0 fills it */
         .reveal .slides section.dt-question-slide .dt-overlay {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: rgba(0, 0, 0, 0.75);
             z-index: 1;
             pointer-events: none;
@@ -103,8 +106,8 @@
             gap: 0.15em;
             width: 100%;
         }
-
     </style>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -127,333 +130,1028 @@
                 </div>
             </section>
 
-            <!-- Slide: About the Speaker -->
             <section>
-                <h4>Myself: <span class="highlight">Gian Marco Paldino</span></h4>
-                <div class="speaker-bio">
-                    <p>Postdoctoral Researcher · <strong>Machine Learning Group, ULB</strong> · Ph.D. 2026</p>
-                    <p>Research focus: multivariate time series — causal inference, forecasting, anomaly detection, and
-                        <strong>Digital Twins</strong>.</p>
-                </div>
-                Today: 
+                <section>
+                    <h4>Introduction</h4>
+                </section>
+                <!-- Slide: About the Speaker -->
+                <section>
+                    <h4>Myself: <span class="highlight">Gian Marco Paldino</span></h4>
+                    <div class="speaker-bio">
+                        <p>Postdoctoral Researcher · <strong>Machine Learning Group, ULB</strong> · Ph.D. 2026</p>
+                        <p>Research focus: multivariate time series — causal inference, forecasting, anomaly detection,
+                            and
+                            <strong>Digital Twins</strong>.
+                        </p>
+                    </div>
+                    Today:
 
-                <div class="welt-banner">
-                    VPP-Sim: A Modular Open-Source Framework for Developing and Deploying ML-Driven Strategies in Virtual Power Plants., Paldino, G.M. & Bontempi, G., ECML PKDD 2025
-                </div>
+                    <div class="welt-banner">
+                        VPP-Sim: A Modular Open-Source Framework for Developing and Deploying ML-Driven Strategies in
+                        Virtual Power Plants., Paldino, G.M. & Bontempi, G., ECML PKDD 2025
+                    </div>
 
+                </section>
+
+                <!-- Slide: MLG & EDITS -->
+                <section>
+                    <h4><span class="highlight">MLG-ULB</span> — What We Do</h4>
+                    <p style="font-size:0.35em;">Founded in 2004 by Prof. Gianluca Bontempi, is currently co-headed by
+                        him and Prof. Tom Lenaerts. MLG targets machine learning and behavioral intelligence research on
+                        time series analysis, big data mining, causal inference, network inference, decision-making
+                        models and behavioral analysis</p>
+                    <p style="font-size:0.65em;">The <strong>EDITS</strong> project (<em>Enhancing DIgital TwinS with
+                            scalable
+                            and interpretable AI</em>) — funded by <strong>WEL-T</strong></p>
+                    <div class="mlg-pill"><strong>Energy Twin / VPP</strong> — Energy Communities,
+                        distributed energy management</div>
+                    <div class="mlg-pill"><strong>Traffic Twin</strong> — Urban roadwork impact, Traffic Simulation
+                    </div>
+                    <div class="mlg-pill"><strong>Human / Robotics Twin</strong> — EMG fatigue modelling,
+                        musculoskeletal
+                        rehabilitation</div>
+                    <div class="mlg-pill"><strong>Causal AI</strong> — Transfer learning across
+                        assets, what-if &amp; counterfactual reasoning</div>
+                    <div class="logo-row">
+                        <img src="assets/mlg.png" alt="MLG">
+                        <img src="assets/welt.png" alt="WEL-T">
+                    </div>
+                </section>
+
+                <!-- Slide 3 -->
+                <section>
+                    <h4>The EDITS Project & <span class="highlight">WEL-T</span></h4>
+                    <ul>
+                        <li><strong>EDITS:</strong> Enhancing Digital Twins with Scalable & Interpretable AI.</li>
+                        <li>Made possible by funding from <strong>WEL-T</strong>.</li>
+                        <li><strong>Our Goal:</strong> Move Digital Twins from academic buzzwords to deployed, AI-driven
+                            solutions in Energy, Mobility, and Manufacturing.</li>
+                    </ul>
+                </section>
+
+                <!-- Slide 2 -->
+                <section>
+                    <h4>Agenda (2 Hours)</h4>
+                    <table style="font-size: 0.7em; width: 100%;">
+                        <tr>
+                            <td style="color:#56C556;">14:00 - 14:20</td>
+                            <td>Theory: The Digital Twin Architecture</td>
+                        </tr>
+                        <tr>
+                            <td style="color:#56C556;">14:20 - 14:50</td>
+                            <td>Hands-on 1: The Physical Twin (Data Generation)</td>
+                        </tr>
+                        <tr>
+                            <td style="color:#56C556;">14:50 - 15:00</td>
+                            <td>10 minutes break</td>
+                        </tr>
+                        <tr>
+                            <td style="color:#56C556;">15:00 - 15:20</td>
+                            <td>Hands-on 2: The Digital Brain (Machine Learning)</td>
+                        </tr>
+                        <tr>
+                            <td style="color:#56C556;">15:20 - 16:00</td>
+                            <td>Hands-on 3: Closing the Loop (Optimization)</td>
+                        </tr>
+                    </table>
+
+                    Assumptions: basic Python / basic ML knowledge. Google colab, internet.
+
+                </section>
             </section>
 
-            <!-- Slide: MLG & EDITS -->
+
+
             <section>
-                <h4><span class="highlight">MLG-ULB</span> — What We Do</h4>
-                <p style="font-size:0.35em;">Founded in 2004 by Prof. Gianluca Bontempi, is currently co-headed by him and Prof. Tom Lenaerts. MLG targets machine learning and behavioral intelligence research on time series analysis, big data mining, causal inference, network inference, decision-making models and behavioral analysis</p>
-                <p style="font-size:0.65em;">The <strong>EDITS</strong> project (<em>Enhancing DIgital TwinS with scalable
-                        and interpretable AI</em>) — funded by <strong>WEL-T</strong></p>
-                <div class="mlg-pill"><strong>Energy Twin / VPP</strong> — Energy Communities,
-                    distributed energy management</div>
-                <div class="mlg-pill"><strong>Traffic Twin</strong> — Urban roadwork impact, Traffic Simulation</div>
-                <div class="mlg-pill"><strong>Human / Robotics Twin</strong> — EMG fatigue modelling, musculoskeletal
-                    rehabilitation</div>
-                <div class="mlg-pill"><strong>Causal AI</strong> — Transfer learning across
-                    assets, what-if &amp; counterfactual reasoning</div>
-                <div class="logo-row">
-                    <img src="assets/mlg.png" alt="MLG">
-                    <img src="assets/welt.png" alt="WEL-T">
-                </div>
-            </section>
-
-            <!-- Slide 3 -->
-            <section>
-                <h4>The EDITS Project & <span class="highlight">WEL-T</span></h4>
-                <ul>
-                    <li><strong>EDITS:</strong> Enhancing Digital Twins with Scalable & Interpretable AI.</li>
-                    <li>Made possible by funding from <strong>WEL-T</strong>.</li>
-                    <li><strong>Our Goal:</strong> Move Digital Twins from academic buzzwords to deployed, AI-driven
-                        solutions in Energy, Mobility, and Manufacturing.</li>
-                </ul>
-            </section>
-
-            <!-- Slide 2 -->
-            <section>
-                <h4>Agenda (2 Hours)</h4>
-                <table style="font-size: 0.7em; width: 100%;">
-                    <tr>
-                        <td style="color:#56C556;">14:00 - 14:20</td>
-                        <td>Theory: The Digital Twin Architecture</td>
-                    </tr>
-                    <tr>
-                        <td style="color:#56C556;">14:20 - 14:50</td>
-                        <td>Hands-on 1: The Physical Twin (Data Generation)</td>
-                    </tr>
-                    <tr>
-                        <td style="color:#56C556;">14:50 - 15:00</td>
-                        <td>10 minutes break</td>
-                    </tr>
-                    <tr>
-                        <td style="color:#56C556;">15:00 - 15:20</td>
-                        <td>Hands-on 2: The Digital Brain (Machine Learning)</td>
-                    </tr>
-                    <tr>
-                        <td style="color:#56C556;">15:20 - 16:00</td>
-                        <td>Hands-on 3: Closing the Loop (Optimization)</td>
-                    </tr>
-                    <tr>
-                        <td style="color:#56C556;">If extra time</td>
-                        <td>Hands-on 4: Deployment (Docker)</td>
-                    </tr>
-                </table>
-                
-            </section>
-
-            
-
-<!-- ============================================
+                <section>
+                    <h4>Digital Twins</h4>
+                </section>
+                <!-- ============================================
      SLIDE 3a: IS THIS A DIGITAL TWIN? - DIGITAL MODEL
      ============================================ -->
-<section class="dt-question-slide"
-    data-background-video="./assets/cad.mp4"
-    data-background-video-loop="true"
-    data-background-video-muted="true"
-    data-background-size="cover">
+                <section class="dt-question-slide" data-background-video="./assets/cad.mp4"
+                    data-background-video-loop="true" data-background-video-muted="true" data-background-size="cover">
 
-    <!-- Dark overlay — fades in on first click -->
-    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
+                    <!-- Dark overlay — fades in on first click -->
+                    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
 
-    <!-- Content layer -->
-    <div class="dt-content">
+                    <!-- Content layer -->
+                    <div class="dt-content">
 
-        <div class="fragment fade-up" data-fragment-index="1" style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
-            A CAD model.
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="1"
+                            style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
+                            A CAD model.
+                        </div>
 
-        <div class="fragment fade-up" data-fragment-index="2" style="font-size:1.5em; font-weight:500; color:#fff;">
-            Is this a Digital Twin?
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="2"
+                            style="font-size:1.5em; font-weight:500; color:#fff;">
+                            Is this a Digital Twin?
+                        </div>
 
-        <div class="fragment fade-up" data-fragment-index="3" style="display:flex; flex-direction:column; align-items:center; gap:0;">
-            <span style="font-size:3.2em; font-weight:800; color:#eb811b; text-shadow:0 0 40px rgba(235,129,27,0.5);">NO</span>
-            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">This is a Digital Model</span>
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="3"
+                            style="display:flex; flex-direction:column; align-items:center; gap:0;">
+                            <span
+                                style="font-size:3.2em; font-weight:800; color:#eb811b; text-shadow:0 0 40px rgba(235,129,27,0.5);">NO</span>
+                            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">This is a Digital
+                                Model</span>
+                        </div>
 
-    </div>
-</section>
+                    </div>
+                </section>
 
-<!-- ============================================
+                <!-- ============================================
      SLIDE 3b: IS THIS A DIGITAL TWIN? - DIGITAL SHADOW
      ============================================ -->
-<section class="dt-question-slide"
-    data-background-video="./assets/avatar.mp4"
-    data-background-video-loop="true"
-    data-background-video-muted="true"
-    data-background-size="cover">
+                <section class="dt-question-slide" data-background-video="./assets/avatar.mp4"
+                    data-background-video-loop="true" data-background-video-muted="true" data-background-size="cover">
 
-    <!-- Dark overlay — fades in on first click -->
-    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
+                    <!-- Dark overlay — fades in on first click -->
+                    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
 
-    <!-- Content layer -->
-    <div class="dt-content">
+                    <!-- Content layer -->
+                    <div class="dt-content">
 
-        <div class="fragment fade-up" data-fragment-index="1" style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
-            A movie made from real life sensors.<br>
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="1"
+                            style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
+                            A movie made from real life sensors.<br>
+                        </div>
 
-        <div class="fragment fade-up" data-fragment-index="2" style="font-size:1.5em; font-weight:500; color:#fff;">
-            Is this a Digital Twin?
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="2"
+                            style="font-size:1.5em; font-weight:500; color:#fff;">
+                            Is this a Digital Twin?
+                        </div>
 
-        <div class="fragment fade-up" data-fragment-index="3" style="display:flex; flex-direction:column; align-items:center; gap:0;">
-            <span style="font-size:3.2em; font-weight:800; color:#eb811b; text-shadow:0 0 40px rgba(235,129,27,0.5);">NO</span>
-            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">This is a Digital Shadow</span>
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="3"
+                            style="display:flex; flex-direction:column; align-items:center; gap:0;">
+                            <span
+                                style="font-size:3.2em; font-weight:800; color:#eb811b; text-shadow:0 0 40px rgba(235,129,27,0.5);">NO</span>
+                            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">This is a Digital
+                                Shadow</span>
+                        </div>
 
-    </div>
-</section>
+                    </div>
+                </section>
 
-<section class="dt-question-slide"
-    data-background-video="./assets/hand.mp4"
-    data-background-video-loop="true"
-    data-background-video-muted="true"
-    data-background-size="cover">
+                <section class="dt-question-slide" data-background-video="./assets/hand.mp4"
+                    data-background-video-loop="true" data-background-video-muted="true" data-background-size="cover">
 
-    <!-- Dark overlay — fades in on first click -->
-    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
+                    <!-- Dark overlay — fades in on first click -->
+                    <div class="fragment fade-in dt-overlay" data-fragment-index="1"></div>
 
-    <!-- Content layer -->
-    <div class="dt-content">
+                    <!-- Content layer -->
+                    <div class="dt-content">
 
-        <div class="fragment fade-up" data-fragment-index="1" style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
-            A robotic hand moving in real-time.<br>
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="1"
+                            style="font-size:2em; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,0.9);">
+                            A robotic hand moving in real-time.<br>
+                        </div>
 
-        <div class="fragment fade-up" data-fragment-index="2" style="font-size:1.5em; font-weight:500; color:#fff;">
-            Is this a Digital Twin?
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="2"
+                            style="font-size:1.5em; font-weight:500; color:#fff;">
+                            Is this a Digital Twin?
+                        </div>
 
-        <div class="fragment fade-up" data-fragment-index="3" style="display:flex; flex-direction:column; align-items:center; gap:0;">
-            <span style="font-size:3.2em; font-weight:800; color:#2e8b57; text-shadow:0 0 40px rgba(46,139,87,0.5);">YES</span>
-            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">Digital and physical inform each other continuously</span>
-        </div>
+                        <div class="fragment fade-up" data-fragment-index="3"
+                            style="display:flex; flex-direction:column; align-items:center; gap:0;">
+                            <span
+                                style="font-size:3.2em; font-weight:800; color:#2e8b57; text-shadow:0 0 40px rgba(46,139,87,0.5);">YES</span>
+                            <span style="font-size:0.9em; color:#fff; letter-spacing:0.05em;">Digital and physical
+                                inform each other continuously</span>
+                        </div>
 
-    </div>
-</section>
+                    </div>
+                </section>
 
 
-            <!-- Slide 4 -->
+                <!-- Slide 4 -->
+                <section>
+                    <h4>What is a <span class="highlight">Digital Twin?</span></h4>
+                    <div style="display:flex; align-items:center; gap:30px; justify-content:center; margin-top:10px;">
+                        <!-- TikZ-equivalent SVG diagram -->
+                        <svg width="260" height="200" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg"
+                            style="flex-shrink:0;">
+                            <!-- Physical Asset box -->
+                            <rect x="55" y="130" width="150" height="55" rx="5" fill="none" stroke="#c8a96e"
+                                stroke-width="2" />
+                            <text x="130" y="153" text-anchor="middle" fill="white" font-size="13"
+                                font-weight="bold">Physical</text>
+                            <text x="130" y="170" text-anchor="middle" fill="white" font-size="13"
+                                font-weight="bold">Asset</text>
+                            <!-- Digital Twin box -->
+                            <rect x="55" y="15" width="150" height="55" rx="5" fill="rgba(86,197,86,0.15)"
+                                stroke="#56C556" stroke-width="2" />
+                            <text x="130" y="38" text-anchor="middle" fill="white" font-size="13"
+                                font-weight="bold">Digital</text>
+                            <text x="130" y="55" text-anchor="middle" fill="white" font-size="13"
+                                font-weight="bold">Twin</text>
+                            <!-- Arrow up: Data -->
+                            <line x1="155" y1="130" x2="155" y2="70" stroke="#56C556" stroke-width="2"
+                                marker-end="url(#arrowUp)" />
+                            <text x="162" y="105" fill="#56C556" font-size="11">Data</text>
+                            <!-- Arrow down: Information -->
+                            <line x1="105" y1="70" x2="105" y2="130" stroke="#c8a96e" stroke-width="2"
+                                marker-end="url(#arrowDown)" />
+                            <text x="18" y="105" fill="#c8a96e" font-size="11">Information</text>
+                            <!-- Arrowhead defs: tip points along local +x, orient="auto" rotates to match line -->
+                            <defs>
+                                <marker id="arrowUp" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                                    <path d="M0,0 L8,4 L0,8 Z" fill="#56C556" />
+                                </marker>
+                                <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                                    <path d="M0,0 L8,4 L0,8 Z" fill="#c8a96e" />
+                                </marker>
+                            </defs>
+                        </svg>
+                        <ul style="font-size:0.7em; text-align:left;">
+                            <li>Not just a static 3D model.</li>
+                            <li><strong>Sensing:</strong> Data updates the virtual model.</li>
+                            <li><strong>Actuating:</strong> DT affects real-world decisions.</li>
+                            <li><strong>Digital Shadow:</strong> green arrow only. (e.g. </li>
+                            <li><strong>Digital Model:</strong> orange arrow only. (e.g. CAD tools)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Slide 5 -->
+                <section>
+                    <h4>The 5-Layer Architecture</h4>
+                    <ol class="layer-list">
+                        <li><span class="highlight">Generation:</span> Sensors, IoT, Simulators</li>
+                        <li><span class="highlight">Streaming:</span> Kafka / Big Data</li>
+                        <li><span class="highlight">Storage:</span> Time-Series Databases</li>
+                        <li><span class="highlight">Processing:</span> Machine Learning & AI</li>
+                        <li><span class="highlight">Decision:</span> Dashboards & Optimization</li>
+                    </ol>
+                </section>
+            </section>
+
+
             <section>
-                <h4>What is a <span class="highlight">Digital Twin?</span></h4>
-                <div style="display:flex; align-items:center; gap:30px; justify-content:center; margin-top:10px;">
-                    <!-- TikZ-equivalent SVG diagram -->
-                    <svg width="260" height="200" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-                        <!-- Physical Asset box -->
-                        <rect x="55" y="130" width="150" height="55" rx="5" fill="none" stroke="#c8a96e" stroke-width="2"/>
-                        <text x="130" y="153" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Physical</text>
-                        <text x="130" y="170" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Asset</text>
-                        <!-- Digital Twin box -->
-                        <rect x="55" y="15" width="150" height="55" rx="5" fill="rgba(86,197,86,0.15)" stroke="#56C556" stroke-width="2"/>
-                        <text x="130" y="38" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Digital</text>
-                        <text x="130" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Twin</text>
-                        <!-- Arrow up: Data -->
-                        <line x1="155" y1="130" x2="155" y2="70" stroke="#56C556" stroke-width="2" marker-end="url(#arrowUp)"/>
-                        <text x="162" y="105" fill="#56C556" font-size="11">Data</text>
-                        <!-- Arrow down: Information -->
-                        <line x1="105" y1="70" x2="105" y2="130" stroke="#c8a96e" stroke-width="2" marker-end="url(#arrowDown)"/>
-                        <text x="18" y="105" fill="#c8a96e" font-size="11">Information</text>
-                        <!-- Arrowhead defs: tip points along local +x, orient="auto" rotates to match line -->
-                        <defs>
-                            <marker id="arrowUp" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
-                                <path d="M0,0 L8,4 L0,8 Z" fill="#56C556"/>
-                            </marker>
-                            <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
-                                <path d="M0,0 L8,4 L0,8 Z" fill="#c8a96e"/>
-                            </marker>
-                        </defs>
-                    </svg>
-                    <ul style="font-size:0.7em; text-align:left;">
-                        <li>Not just a static 3D model.</li>
-                        <li><strong>Sensing:</strong> Data updates the virtual model.</li>
-                        <li><strong>Actuating:</strong> DT affects real-world decisions.</li>
-                        <li><strong>Digital Shadow:</strong> green arrow only. (e.g. </li>
-                        <li><strong>Digital Model:</strong> orange arrow only. (e.g. CAD tools)</li>
+                <section>
+                    <h4>Virtual Power Plants</h4>
+                </section>
+                <!-- Slide 6a: VPP Definition -->
+                <section>
+                    <h4>Today's Use Case: The <span class="highlight">Virtual Power Plant</span></h4>
+                    <blockquote
+                        style="font-size:0.65em; border-left:4px solid #56C556; padding-left:14px; margin:24px auto; text-align:center; max-width:85%;">
+                        A <strong>Virtual Power Plant (VPP)</strong> is a cloud-based distributed power plant that
+                        aggregates the capacities of heterogeneous distributed energy resources (DERs) — solar panels,
+                        wind turbines, battery storage, and flexible loads — and coordinates them as a single,
+                        dispatchable unit visible to the grid operator.
+                    </blockquote>
+                </section>
+
+                <section>
+                    <ul style="font-size:0.65em; text-align:left;">
+                        <li>No single physical location — exists as software + communication layer.</li>
+                        <li>Compensates for the <strong>intermittency</strong> of renewables by pooling complementary
+                            assets.</li>
+                        <li>Key metric: keep supply = demand at all times (grid frequency = 50 Hz).</li>
                     </ul>
-                </div>
-            </section>
+                </section>
 
-            <!-- Slide 5 -->
-            <section>
-                <h4>The 5-Layer Architecture</h4>
-                <ol class="layer-list">
-                    <li><span class="highlight">Generation:</span> Sensors, IoT, Simulators</li>
-                    <li><span class="highlight">Streaming:</span> Kafka / Big Data</li>
-                    <li><span class="highlight">Storage:</span> Time-Series Databases</li>
-                    <li><span class="highlight">Processing:</span> Machine Learning & AI</li>
-                    <li><span class="highlight">Decision:</span> Dashboards & Optimization</li>
-                </ol>
-            </section>
 
-            <!-- Slide 6a: VPP Definition -->
-            <section>
-                <h4>Today's Use Case: The <span class="highlight">Virtual Power Plant</span></h4>
-                <blockquote style="font-size:0.65em; border-left:4px solid #56C556; padding-left:14px; margin:24px auto; text-align:center; max-width:85%;">
-                    A <strong>Virtual Power Plant (VPP)</strong> is a cloud-based distributed power plant that aggregates the capacities of heterogeneous distributed energy resources (DERs) — solar panels, wind turbines, battery storage, and flexible loads — and coordinates them as a single, dispatchable unit visible to the grid operator.
-                </blockquote>
-            </section>
 
-            <section>
-                <ul style="font-size:0.65em; text-align:left;">
-                    <li>No single physical location — exists as software + communication layer.</li>
-                    <li>Compensates for the <strong>intermittency</strong> of renewables by pooling complementary assets.</li>
-                    <li>Key metric: keep supply = demand at all times (grid frequency = 50 Hz).</li>
-                </ul>
-            </section>
-            
-            
-
-            <!-- Slide 6b: VPP Under the Hood -->
-            <section>
-                <h4>VPP — <span class="highlight">Under the Hood</span></h4>
-                <div style="display:flex; gap:20px; font-size:0.6em; text-align:left; margin-top:10px;">
-                    <div style="flex:1;">
-                        <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">Components</p>
-                        <ul>
-                            <li>☀️ Solar PV panels</li>
-                            <li>💨 Wind turbines</li>
-                            <li>🔋 Battery storage (BESS)</li>
-                            <li>🏭 Flexible industrial loads</li>
-                            <li>🏠 Smart-meter households</li>
-                        </ul>
+                <!-- Slide 6b: VPP Under the Hood -->
+                <section>
+                    <h4>VPP — <span class="highlight">Under the Hood</span></h4>
+                    <div style="display:flex; gap:20px; font-size:0.6em; text-align:left; margin-top:10px;">
+                        <div style="flex:1;">
+                            <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">Components</p>
+                            <ul>
+                                <li>☀️ Solar PV panels</li>
+                                <li>💨 Wind turbines</li>
+                                <li>🔋 Battery storage (BESS)</li>
+                                <li>🏭 Flexible industrial loads</li>
+                                <li>🏠 Smart-meter households</li>
+                            </ul>
+                        </div>
+                        <div style="flex:1;">
+                            <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">What the DT does</p>
+                            <ul>
+                                <li><strong>Forecasting:</strong> predict solar & wind output (LSTM, XGBoost)</li>
+                                <li><strong>Scheduling:</strong> charge/discharge battery optimally (LP/MPC)</li>
+                                <li><strong>Market participation:</strong> bid surplus into day-ahead markets</li>
+                                <li><strong>Fault detection:</strong> anomaly detection on sensor streams</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div style="flex:1;">
-                        <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">What the DT does</p>
-                        <ul>
-                            <li><strong>Forecasting:</strong> predict solar & wind output (LSTM, XGBoost)</li>
-                            <li><strong>Scheduling:</strong> charge/discharge battery optimally (LP/MPC)</li>
-                            <li><strong>Market participation:</strong> bid surplus into day-ahead markets</li>
-                            <li><strong>Fault detection:</strong> anomaly detection on sensor streams</li>
-                        </ul>
+                </section>
+
+                <!-- Slide 6c: Why VPP is a textbook DT -->
+                <section>
+                    <h4>Why VPP is a <span class="highlight">Textbook Digital Twin</span></h4>
+                    <div style="display:flex; align-items:center; gap:24px; justify-content:center; margin-top:10px;">
+                        <svg width="220" height="200" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg"
+                            style="flex-shrink:0;">
+                            <defs>
+                                <marker id="arrowUp2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                                    <path d="M0,0 L8,4 L0,8 Z" fill="#56C556" />
+                                </marker>
+                                <marker id="arrowDown2" markerWidth="8" markerHeight="8" refX="8" refY="4"
+                                    orient="auto">
+                                    <path d="M0,0 L8,4 L0,8 Z" fill="#c8a96e" />
+                                </marker>
+                            </defs>
+                            <rect x="35" y="130" width="150" height="55" rx="5" fill="none" stroke="#c8a96e"
+                                stroke-width="2" />
+                            <text x="110" y="151" text-anchor="middle" fill="white" font-size="12"
+                                font-weight="bold">Physical VPP</text>
+                            <text x="110" y="168" text-anchor="middle" fill="#c8a96e" font-size="10">panels · turbines ·
+                                batteries</text>
+                            <rect x="35" y="15" width="150" height="55" rx="5" fill="rgba(86,197,86,0.15)"
+                                stroke="#56C556" stroke-width="2" />
+                            <text x="110" y="36" text-anchor="middle" fill="white" font-size="12"
+                                font-weight="bold">Digital Twin</text>
+                            <text x="110" y="53" text-anchor="middle" fill="#56C556" font-size="10">forecast · optimise
+                                · decide</text>
+                            <line x1="135" y1="130" x2="135" y2="70" stroke="#56C556" stroke-width="2"
+                                marker-end="url(#arrowUp2)" />
+                            <text x="140" y="105" fill="#56C556" font-size="10">sensor data</text>
+                            <line x1="85" y1="70" x2="85" y2="130" stroke="#c8a96e" stroke-width="2"
+                                marker-end="url(#arrowDown2)" />
+                            <text x="0" y="98" fill="#c8a96e" font-size="10">dispatch</text>
+                            <text x="4" y="110" fill="#c8a96e" font-size="10">commands</text>
+                        </svg>
+                        <div style="font-size:0.58em; text-align:left;">
+                            <p style="color:#56C556; font-weight:bold; margin-bottom:6px;">Sensing (Physical → Digital)
+                            </p>
+                            <ul style="margin-bottom:12px;">
+                                <li>Solar irradiance &amp; wind speed → update forecast model</li>
+                                <li>Battery state-of-charge → update optimisation state</li>
+                                <li>Household consumption → update demand model</li>
+                            </ul>
+                            <p style="color:#c8a96e; font-weight:bold; margin-bottom:6px;">Actuating (Digital →
+                                Physical)</p>
+                            <ul>
+                                <li>Optimised schedule → commands inverters &amp; BESS</li>
+                                <li>Market bid → triggers real energy transactions</li>
+                                <li>Fault alert → triggers maintenance crew</li>
+                            </ul>
+                            <p style="margin-top:10px; color:#aaa;"><em>Both arrows active → true Digital Twin,<br>not
+                                    just a shadow or a model.</em></p>
+                        </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- Slide 6d: Real-world deployments -->
+                <section>
+                    <h4>VPP — <span class="highlight">Real-World Deployments</span></h4>
+                    <div style="font-size:0.6em; text-align:left; margin-top:8px;">
+                        <div class="mlg-pill"><strong>Next Kraftwerke (Germany)</strong> — Europe's largest VPP, >14 GW
+                            aggregated capacity from 13 000+ assets. Trades energy on 9 European spot markets in
+                            real-time.</div>
+                        <div class="mlg-pill"><strong>Tesla Autobidder (Australia)</strong> — Hornsdale Power Reserve
+                            (150 MW / 194 MWh BESS). Automated battery dispatch saved the Australian grid ~$150 M AUD in
+                            frequency regulation costs (2018–2020).</div>
+                        <div class="mlg-pill"><strong>Ørsted / Danish TSO</strong> — Offshore wind VPP that curtails or
+                            ramps turbines within seconds to balance the national grid; integrates weather-forecast ML
+                            models updated every 15 min.</div>
+                    </div>
+                </section>
             </section>
 
-            <!-- Slide 6c: Why VPP is a textbook DT -->
             <section>
-                <h4>Why VPP is a <span class="highlight">Textbook Digital Twin</span></h4>
-                <div style="display:flex; align-items:center; gap:24px; justify-content:center; margin-top:10px;">
-                    <svg width="220" height="200" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-                        <defs>
-                            <marker id="arrowUp2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
-                                <path d="M0,0 L8,4 L0,8 Z" fill="#56C556"/>
-                            </marker>
-                            <marker id="arrowDown2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
-                                <path d="M0,0 L8,4 L0,8 Z" fill="#c8a96e"/>
-                            </marker>
-                        </defs>
-                        <rect x="35" y="130" width="150" height="55" rx="5" fill="none" stroke="#c8a96e" stroke-width="2"/>
-                        <text x="110" y="151" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Physical VPP</text>
-                        <text x="110" y="168" text-anchor="middle" fill="#c8a96e" font-size="10">panels · turbines · batteries</text>
-                        <rect x="35" y="15" width="150" height="55" rx="5" fill="rgba(86,197,86,0.15)" stroke="#56C556" stroke-width="2"/>
-                        <text x="110" y="36" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Digital Twin</text>
-                        <text x="110" y="53" text-anchor="middle" fill="#56C556" font-size="10">forecast · optimise · decide</text>
-                        <line x1="135" y1="130" x2="135" y2="70" stroke="#56C556" stroke-width="2" marker-end="url(#arrowUp2)"/>
-                        <text x="140" y="105" fill="#56C556" font-size="10">sensor data</text>
-                        <line x1="85" y1="70" x2="85" y2="130" stroke="#c8a96e" stroke-width="2" marker-end="url(#arrowDown2)"/>
-                        <text x="0" y="98" fill="#c8a96e" font-size="10">dispatch</text>
-                        <text x="4" y="110" fill="#c8a96e" font-size="10">commands</text>
-                    </svg>
+                <section>
+                    <h4>Hands-on 01 - Data generation</h4>
+                </section>
+
+                <section>
+                    <h4><span class="highlight">In simple terms</span></h4>
+                    <p style="font-size:0.65em; color:#aaa; margin-bottom:12px;">We get weather data and use specialized
+                        libraries that convert this weather data into energy profiles for solar panels and wind
+                        turbines.</p>
+                    <div style="display:flex; gap:18px; font-size:0.58em; text-align:left; margin-top:8px;">
+                        <div
+                            style="flex:1; background:rgba(255,193,7,0.08); border:1px solid #ffc107; border-radius:6px; padding:10px;">
+                            <p style="color:#ffc107; font-weight:bold; margin:0 0 6px;">🌐 Weather Data Input</p>
+                            <p style="margin:0;">Temperature, irradiance, wind speed, humidity, cloud cover, etc. from
+                                weather stations or forecasts.</p>
+                        </div>
+                        <div
+                            style="flex:1; background:rgba(100,200,255,0.08); border:1px solid #64c8ff; border-radius:6px; padding:10px;">
+                            <p style="color:#64c8ff; font-weight:bold; margin:0 0 6px;">⚙️ Specialized Libraries</p>
+                            <p style="margin:0;"><strong>pvlib</strong> (solar), <strong>windpowerlib</strong> (wind),
+                                and others that model physics & efficiency.</p>
+                        </div>
+                        <div
+                            style="flex:1; background:rgba(76,175,80,0.08); border:1px solid #4caf50; border-radius:6px; padding:10px;">
+                            <p style="color:#4caf50; font-weight:bold; margin:0 0 6px;">⚡ Energy Profile Output</p>
+                            <p style="margin:0;">Predicted power output (kW/MW) for each asset at each time step—ready
+                                for optimization.</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- Solar Irradiance: why 3 components -->
+                <section>
+                    <h4><span class="highlight">Solar Irradiance</span></h4>
+                    <img src="assets/solar.png" alt="Irradiance Components"
+                        style="width:100%; border-radius:8px; margin-top:6px;">
+                </section>
+
+                <section>
+                    <h4><span class="highlight">Solar Irradiance</span></h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">The sun's energy reaching a surface
+                        splits into three components that pvlib needs separately.</p>
+                    <div style="display:flex; gap:18px; font-size:0.58em; text-align:left; margin-top:6px;">
+                        <div
+                            style="flex:1; background:rgba(86,197,86,0.08); border:1px solid #56C556; border-radius:6px; padding:10px;">
+                            <p style="color:#56C556; font-weight:bold; margin:0 0 6px;">☀️ GHI — Global Horizontal
+                                Irradiance</p>
+                            <p style="margin:0;">Total solar radiation on a <strong>flat horizontal surface</strong>.
+                                GHI = DNI·cos(θ) + DHI. The "headline" number from weather stations.</p>
+                        </div>
+                        <div
+                            style="flex:1; background:rgba(200,169,110,0.08); border:1px solid #c8a96e; border-radius:6px; padding:10px;">
+                            <p style="color:#c8a96e; font-weight:bold; margin:0 0 6px;">🔆 DNI — Direct Normal
+                                Irradiance</p>
+                            <p style="margin:0;">Radiation arriving <strong>directly from the sun's disk</strong>,
+                                measured on a surface always perpendicular to it. Dominant on clear days. Strongly
+                                affected by tilt & azimuth.</p>
+                        </div>
+                        <div
+                            style="flex:1; background:rgba(100,160,255,0.08); border:1px solid #64a0ff; border-radius:6px; padding:10px;">
+                            <p style="color:#64a0ff; font-weight:bold; margin:0 0 6px;">🌫️ DHI — Diffuse Horizontal
+                                Irradiance</p>
+                            <p style="margin:0;">Scattered radiation from <strong>the rest of the sky dome</strong>
+                                (clouds, atmosphere). Does not depend on panel orientation — you always receive it.</p>
+                        </div>
+                    </div>
+                    <p style="font-size:0.55em; color:#aaa; margin-top:10px;">Why all three? A tilted panel sees a
+                        <em>different mix</em> of direct, diffuse, and ground-reflected light. pvlib needs all three to
+                        compute what actually hits your panel.
+                    </p>
+                </section>
+
+
+                <!-- pvlib model chain -->
+                <section>
+                    <h4>How <span class="highlight">pvlib</span> Works — The Model Chain</h4>
+                    <div style="font-size:0.58em; text-align:left; margin-top:8px;">
+                        <p style="color:#aaa; margin-bottom:8px;">pvlib strings together a pipeline of physical models.
+                            Each step converts one quantity into the next:</p>
+                        <div style="display:flex; flex-direction:column; gap:6px;">
+                            <div class="mlg-pill"><strong style="color:#56C556;">1. Solar position</strong> → sun
+                                altitude &amp; azimuth from lat/lon/time (ephemeris)</div>
+                            <div class="mlg-pill"><strong style="color:#56C556;">2. Plane-of-Array (POA)
+                                    irradiance</strong> → project GHI/DNI/DHI onto your tilted surface using the
+                                <em>angle of incidence</em> (AOI)
+                            </div>
+                            <div class="mlg-pill"><strong style="color:#56C556;">3. Cell temperature</strong> → Faiman /
+                                Sandia thermal model; higher temp = lower power</div>
+                            <div class="mlg-pill"><strong style="color:#56C556;">4. DC power</strong> → PVWatts or SDM
+                                model using POA &amp; cell temp</div>
+                            <div class="mlg-pill"><strong style="color:#56C556;">5. AC power</strong> → inverter
+                                efficiency curve (SNEC / PVWatts)</div>
+                        </div>
+                        <p style="margin-top:8px; color:#aaa;">The columns <code>ghi</code>, <code>dni</code>,
+                            <code>dhi</code>, <code>temp_air</code>, <code>wind_speed</code> are the exact inputs steps
+                            1–3 consume — that's why the names are mandatory.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- PV system parameters -->
+                <section>
+                    <h4>PV System Parameters — <span class="highlight">Physical Meaning</span></h4>
+                    <div style="font-size:0.57em; text-align:left; margin-top:6px;">
+                        <div style="display:flex; gap:16px;">
+                            <div style="flex:1;">
+                                <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">Module</p>
+                                <div class="mlg-pill"><strong>pdc0 = 250 W</strong> — rated DC power at Standard Test
+                                    Conditions (1000 W/m², 25 °C). The nameplate figure on the panel datasheet.</div>
+                                <div class="mlg-pill"><strong>gamma_pdc = −0.0045</strong> — temperature coefficient
+                                    (%/°C). At 60 °C (typical summer) power drops by ≈ 0.45 % × 35 °C ≈ <strong>−16
+                                        %</strong>. Negative because silicon efficiency falls with heat.</div>
+                                <div class="mlg-pill"><strong>surface_tilt = 30°</strong> — angle from horizontal.
+                                    Closer to your latitude → more annual energy; steeper → better winter, worse summer.
+                                </div>
+                                <div class="mlg-pill"><strong>surface_azimuth = 180°</strong> — South-facing (Northern
+                                    Hemisphere). Maximises daily sun exposure. 90° = East, 270° = West.</div>
+                            </div>
+                            <div style="flex:1;">
+                                <p style="color:#c8a96e; font-weight:bold; margin-bottom:4px;">Inverter &amp; Racking
+                                </p>
+                                <div class="mlg-pill"><strong>pdc0 = 240 W</strong> — inverter DC input limit. Slightly
+                                    below panel rating → clips only rare peak moments, optimises cost.</div>
+                                <div class="mlg-pill"><strong>eta_inv_nom = 0.96</strong> — 96 % conversion efficiency
+                                    DC→AC. Losses are heat in the electronics.</div>
+                                <div class="mlg-pill"><strong>open_rack</strong> — panels mounted with air flowing
+                                    behind them; cooler → better efficiency. "close_mount" (roof-flush) runs hotter.
+                                </div>
+                                <div class="mlg-pill"><strong>glass_polymer</strong> — back-sheet material; affects
+                                    thermal model coefficients (emissivity, absorption).</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Wind modeling -->
+                <section>
+                    <h4> <span class="highlight">Wind Power</span></h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Wind power follows a cubic law — small
+                        speed changes have a huge impact.</p>
+                    <div style="display:flex; gap:18px; font-size:0.58em; text-align:left;">
+                        <div style="flex:1;">
+                            <p style="color:#56C556; font-weight:bold; margin-bottom:4px;">Key physics</p>
+                            <div class="mlg-pill"><strong>P ∝ v³</strong> — doubling wind speed → 8× more power. Above
+                                rated speed, the turbine pitches blades to cap output.</div>
+                            <div class="mlg-pill"><strong>Cut-in speed (~3 m/s)</strong> — minimum wind to start
+                                generating. Below this: 0 W.</div>
+                            <div class="mlg-pill"><strong>Rated speed (~12 m/s)</strong> — turbine reaches nameplate
+                                power; output plateaus.</div>
+                            <div class="mlg-pill"><strong>Cut-out speed (~25 m/s)</strong> — turbine shuts down to avoid
+                                structural damage.</div>
+                        </div>
+                        <div style="flex:1;">
+                            <p style="color:#c8a96e; font-weight:bold; margin-bottom:4px;">What we model</p>
+                            <div class="mlg-pill"><strong>wind_speed</strong> column — measured at 10 m height (standard
+                                met station). We scale to hub height (~80 m) with a log-law profile.</div>
+                            <div class="mlg-pill"><strong>Power curve</strong> — manufacturer's lookup table mapping v →
+                                P. We interpolate it in the notebook.</div>
+                            <div class="mlg-pill"><strong>Capacity factor</strong> — actual energy ÷ theoretical max.
+                                Typical onshore: 25–35 %. Offshore: 40–50 %.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>3. Simulating Community Demand & Tariffs</h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Build a realistic load profile and
+                        dynamic price signal for downstream prediction.</p>
+                    <div style="font-size:0.55em; text-align:left; display:flex; gap:12px;">
+                        <div style="flex:1; background:rgba(255,255,255,0.04); padding:10px; border-radius:4px;">
+                            <strong style="color:#64a0ff;">Demand profile</strong>
+
+                            <div class="mlg-pill"><strong>Base demand</strong> — lower weekends (5 kW) and weekdays
+                                (7 kW).</div>
+                            <div class="mlg-pill"><strong>Morning peak</strong> — Gaussian bump around 08:30 with a
+                                smaller amplitude than the original model.</div>
+                            <div class="mlg-pill"><strong>Evening peak</strong> — wider peak around 19:30 to capture
+                                after-work usage.</div>
+                            <div class="mlg-pill"><strong>Noise + floor</strong> — adds small hourly variation and
+                                clips demand to a 2 kW minimum.</div>
+                        </div>
+                        <div style="flex:1; background:rgba(255,255,255,0.04); padding:10px; border-radius:4px;">
+                            <strong style="color:#eb811b;">Dynamic tariff</strong>
+                            <div class="mlg-pill"><strong>Base price</strong> — starts at €0.15/kWh.</div>
+                            <div class="mlg-pill"><strong>Peak premium</strong> — adds cost during morning and
+                                evening demand windows.</div>
+                            <div class="mlg-pill"><strong>Solar damping</strong> — reduces price when local solar
+                                generation is high, echoing the duck curve.</div>
+                            <div class="mlg-pill"><strong>Volatility</strong> — small random variation keeps the price
+                                signal more realistic.</div>
+                            <div class="mlg-pill"><strong>Clipping</strong> — keeps tariffs within a practical range.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+
+            <section>
+                <section>
+                    <h4>Hands-on 02 - Training the Digital Brain 🧠</h4>
+                    <p style="font-size:0.6em; color:#aaa;">Predictive Modeling for the Digital Twin</p>
+                    <p style="font-size:0.5em; color:#888; margin-top:20px;">
+                        Supported by the WEL Research Institute (WEL-T) - EDITS Project
+                    </p>
+                </section>
+
+                <!-- ===================== DATA & LEAKAGE ===================== -->
+                <!-- SLIDE 1: FROM SERIES TO TABLE (LAG EMBEDDING) -->
+                <section>
+                    <h4>1. Embedding: Time Series to Tabular</h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Standard ML models require
+                        independent rows to predict a target.</p>
+                    <div style="font-size:0.55em; text-align:left;">
+                        <div class="mlg-pill"
+                            style="margin-bottom:10px; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px;">
+                            <strong>Lag Embedding:</strong> We reconstruct the phase space of the time series by
+                            mapping a single continuous signal into a multi-dimensional row vector using past
+                            values:
+                            <br><br>
+                        </div>
+                        <img src="./assets/embedding.png" alt="Lag Embedding Diagram"
+                            style="display:block; width:100%; max-width:600px; margin:0 auto 10px auto;">
+                        <div style="display:flex; gap:12px;">
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#64a0ff;">The <code>maxlags</code> Parameter (d)</strong>
+                                <ul style="margin-top:6px; padding-left:15px; line-height:1.4;">
+                                    <li>Defines the lookback horizon of the model.</li>
+                                    <li>Must balance historical context with data loss (each lag introduces NaNs at
+                                        the beginning of the series).</li>
+                                </ul>
+                            </div>
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#eb811b;">Leakage Prevention</strong>
+                                <ul style="margin-top:6px; padding-left:15px; line-height:1.4;">
+                                    <li>Lags must only look backward (using positive shifts like
+                                        <code>shift(1)</code>).
+                                    </li>
+                                    <li>Any forward shift (e.g., <code>shift(-1)</code>) introduces future data into
+                                        the current training row.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 2: FEATURE EXTRACTION -->
+                <section>
+                    <h4>2. Feature Extraction</h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Condensing historical windows into
+                        compact statistical summaries.</p>
+                    <div style="font-size:0.55em; text-align:left;">
+                        <div class="mlg-pill"
+                            style="margin-bottom:10px; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px;">
+                            <strong>Why extract statistical features?</strong>
+                            Relying solely on individual lags to capture long-term context leads to
+                            high-dimensional, highly correlated feature matrices. Rolling statistics summarize the
+                            properties of a window without adding excessive columns.
+                        </div>
+                        <div style="display:flex; gap:12px;">
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#56C556;">Rolling Operators</strong>
+                                <ul style="margin-top:6px; padding-left:15px; line-height:1.4;">
+                                    <li><strong>Rolling Mean:</strong> Captures the local smoothed trend level.</li>
+                                    <li><strong>Rolling Std:</strong> Quantifies recent volatility (useful for
+                                        highly variable sources like wind).</li>
+                                    <li><strong>Rolling Min/Max:</strong> Captures recent local boundaries.</li>
+                                </ul>
+                            </div>
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#eb811b;">Causal Constraints</strong>
+                                <ul style="margin-top:6px; padding-left:15px; line-height:1.4;">
+                                    <li>Rolling operations must be right-aligned (using <code>center=False</code>).
+                                    </li>
+                                    <li>Centered windows look forward in time, violating temporal boundaries and
+                                        causing severe validation leakage.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 3: FEATURE ENGINEERING -->
+                <section>
+                    <h4>3. Feature Engineering</h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Injecting domain-specific physical
+                        and temporal structures into the model.</p>
+                    <div style="font-size:0.55em; text-align:left;">
+                        <div style="display:flex; gap:12px; margin-bottom:10px;">
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#64a0ff;">Cyclical Signal Encoding</strong>
+                                <p style="margin-top:6px; line-height:1.4;">
+                                    Linear features like <code>Hour</code> (0–23) hide temporal proximity (hour 23
+                                    and hour 0 are close, but numerically far).
+                                    We map these inputs to a 2D coordinate space using sine and cosine
+                                    transformations:
+                                </p>
+                                <code
+                                    style="background:rgba(0,0,0,0.3); padding:4px 8px; border-radius:3px; display:block; margin-top:4px;">
+                        Hour_Sin = sin(2π·h/24), Hour_Cos = cos(2π·h/24)
+                    </code>
+                            </div>
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#56C556;">Mitigating Dimension Explosion</strong>
+                                <p style="margin-top:6px; line-height:1.4;">
+                                    Adding lags and rolling windows to every exogenous signal causes feature count
+                                    to balloon quickly.
+                                    We selectively include current physical drivers (like Global Horizontal
+                                    Irradiance, <code>ghi</code>) without lagging them, keeping the feature space
+                                    compact.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 4: TIME SERIES CROSS-VALIDATION -->
+                <section>
+                    <h4>4. Time Series Cross-Validation (TSCV)</h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Evaluating models without violating
+                        the direction of time.</p>
+                    <div style="font-size:0.55em; text-align:left;">
+                        <img src="./assets/tscv.png" alt="Time Series Cross-Validation Diagram"
+                            style="display:block; width:120%; max-width:800px; margin:0 auto 10px auto;">
+                    </div>
+                </section>
+
+                <!-- SLIDE 5: NORMALIZED MEAN SQUARED ERROR -->
+                <section>
+                    <h4>5. Normalized Mean Squared Error (NMSE)</h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Evaluating predictive skill relative
+                        to trivial averages.</p>
+                    <div style="font-size:0.55em; text-align:left;">
+                        <div class="mlg-pill"
+                            style="margin-bottom:10px; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px;">
+                            Raw Mean Squared Error (MSE) is highly scale-dependent, making it difficult to compare
+                            performance across different physical locations, scales, or variables.
+                        </div>
+                        <div style="display:flex; gap:12px; margin-bottom:10px;">
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#56C556;">The Formula</strong>
+                                <code
+                                    style="background:rgba(0,0,0,0.3); padding:4px 8px; border-radius:3px; display:block; margin:6px 0;">
+                        NMSE = MSE / Var(y_true)
+                    </code>
+                                <p style="margin:0; font-size:0.95em; line-height:1.4;">
+                                    Normalizing by the variance of the target ground truth converts the error into a
+                                    relative, scale-independent metric.
+                                </p>
+                            </div>
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#64a0ff;">Interpretation Rules</strong>
+                                <ul style="margin-top:6px; padding-left:15px; line-height:1.4;">
+                                    <li><strong>NMSE &gt; 1:</strong> The model performs worse than a simple
+                                        historical mean forecast.</li>
+                                    <li><strong>NMSE ≈ 0:</strong> Near perfect alignment with reality.</li>
+                                    <li><strong>Equivalence:</strong> <code>1 - NMSE</code> represents the
+                                        Coefficient of Determination ($R^2$).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 6: SCALING UP AND RECURSIVE MULTI-STEP FORECASTING -->
+                <section>
+                    <h4>6. Scaling Up &amp; Recursive Forecasting</h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">Extending predictions across multiple
+                        variables and long-term planning horizons.</p>
+                    <div style="font-size:0.55em; text-align:left;">
+                        <div class="mlg-pill"
+                            style="margin-bottom:10px; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px;">
+                            <strong>System-wide Scaling:</strong> To build a functional Digital Twin, we replicate
+                            this tabular workflow for all key dynamic variables (including load demand, wind
+                            generation, and thermal variations).
+                        </div>
+                        <div style="display:flex; gap:12px;">
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#eb811b;">Recursive Forecasting Concept</strong>
+                                <p style="margin-top:6px; line-height:1.4;">
+                                    Standard models predict only one step ahead ($t+1$). For multi-step horizons
+                                    (e.g., $t+24$ for battery scheduling), we feed the predicted value at $t+1$ back
+                                    into the lag array to predict $t+2$, iterating step-by-step.
+                                </p>
+                            </div>
+                            <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:4px;">
+                                <strong style="color:#64a0ff;">Error Propagation Challenge</strong>
+                                <p style="margin-top:6px; line-height:1.4;">
+                                    Because recursive forecasting uses predicted values as inputs for subsequent
+                                    timesteps, any error introduced early in the chain propagates and compounds as
+                                    the forecast horizon expands.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h4>Hands-on 03 - Optimization</h4>
+                </section>
+                <!-- ===================== PRE-NOTEBOOK: OPTIMIZATION ===================== -->
+
+                <!-- Energy arbitrage concept -->
+                <section>
+                    <h4><span class="highlight">Energy Arbitrage</span></h4>
+                    <p style="font-size:0.6em; color:#aaa; margin-bottom:8px;">The same principle as buying low and
+                        selling high — applied to electricity.</p>
                     <div style="font-size:0.58em; text-align:left;">
-                        <p style="color:#56C556; font-weight:bold; margin-bottom:6px;">Sensing (Physical → Digital)</p>
-                        <ul style="margin-bottom:12px;">
-                            <li>Solar irradiance &amp; wind speed → update forecast model</li>
-                            <li>Battery state-of-charge → update optimisation state</li>
-                            <li>Household consumption → update demand model</li>
-                        </ul>
-                        <p style="color:#c8a96e; font-weight:bold; margin-bottom:6px;">Actuating (Digital → Physical)</p>
-                        <ul>
-                            <li>Optimised schedule → commands inverters &amp; BESS</li>
-                            <li>Market bid → triggers real energy transactions</li>
-                            <li>Fault alert → triggers maintenance crew</li>
-                        </ul>
-                        <p style="margin-top:10px; color:#aaa;"><em>Both arrows active → true Digital Twin,<br>not just a shadow or a model.</em></p>
+                        <div class="mlg-pill"><strong>Why do prices fluctuate?</strong> Electricity cannot be stored
+                            at
+                            grid scale cheaply. When renewables overproduce (midday sun), supply &gt; demand →
+                            prices
+                            crash. Evening peak → prices spike. Day-ahead markets (EPEX, Entsoe) clear hourly.</div>
+                        <div class="mlg-pill"><strong>Arbitrage opportunity</strong> — charge a battery when cheap
+                            (night or solar surplus), discharge and sell when expensive (evening peak 17:00–21:00).
+                            Profit = revenue_sell − cost_charge.</div>
                     </div>
-                </div>
+                </section>
+
+                <section data-transition="slide">
+                    <h4>Optimization: <span class="highlight">simplex idea</span></h4>
+                    <p style="font-size: 0.6em; color: #aaa; margin-bottom: 12px;">Setting up the search space
+                        before we
+                        visualize it</p>
+
+                    <div style="display: flex; gap: 24px; text-align: left; font-size: 0.58em; margin-top: 10px;">
+                        <!-- Left Column: The Problem & Math -->
+                        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 8px;">
+                            <p style="color: #56C556; font-weight: bold; margin: 0 0 4px;">The Mathematical Setup
+                            </p>
+
+                            <div class="fragment mlg-pill">
+                                <strong>1. Decisions:</strong><br>
+                                <code>x</code> = Power bought (Costs $2/kW)<br>
+                                <code>y</code> = Power sold (Earns $5/kW)
+                            </div>
+
+                            <div class="fragment mlg-pill"
+                                style="border-color: #eb811b; background: rgba(235, 129, 27, 0.08);">
+                                <strong style="color: #eb811b;">2. Objective:</strong><br>
+                                Maximize profit <code>Z = 5y - 2x</code>
+                            </div>
+
+                            <div class="fragment mlg-pill">
+                                <strong>3. The Walls (Constraints):</strong>
+                                <ul style="margin: 4px 0 0 16px; padding: 0; color: #ccc;">
+                                    <li>Grid connection limit: <code>x ≤ 6</code> and <code>y ≤ 6</code></li>
+                                    <li>Physical battery capacity: <code>y ≤ x + 2</code> (SOC)</li>
+                                    <li>No negative power: <code>x ≥ 0, y ≥ 0</code></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: The Core Concept/Teaser -->
+                        <div
+                            style="flex: 0.8; border-left: 1px solid #444; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                            <p style="color: #c8a96e; font-weight: bold; margin: 0 0 4px;">The Optimization Logic
+                            </p>
+
+                            <div class="mlg-pill">These constraint lines intersect to form a 5-sided polygon on a 2D
+                                plane.</div>
+
+                            <p style="color: #ccc; line-height: 1.4; margin: 0;">
+                                <strong>Key fact:</strong> because the objective is
+                                <strong>linear</strong>,
+                                the optimum always sits at a <strong>corner</strong> of this shape.
+                            </p>
+
+
+                            <div class="mlg-pill">
+                                <strong>Simplex</strong> starts at one corner and hops to a better
+                                neighboring corner until convergence.
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section data-transition="slide">
+                    <h3>Visualizing the constraints</span></h3>
+                    <img src="assets/2d.png" alt="Feasible region polygon with vertices and optimal corner highlighted"
+                        style="width:70%; border:1px solid #444; border-radius:6px;">
+
+                </section>
+
+                <section data-transition="slide">
+                    <h3>Visualizing the profit</span></h3>
+                    <img src="assets/3d.png" alt="Feasible region polygon with vertices and optimal corner highlighted"
+                        style="width:70%; border:1px solid #444; border-radius:6px;">
+
+                </section>
+
+
+                <section>
+                    <h4>What is <span class="highlight">PuLP</span>, really?</h4>
+                    <div style="font-size:0.62em; text-align:left; margin-top:10px;">
+                        <div class="mlg-pill"><strong style="color:#56C556;">PuLP is a translator, not a
+                                solver.</strong>
+                            It lets you write optimization problems in readable Python (<code>prob += ...</code>),
+                            then translates them into a standard mathematical format.</div>
+                        <div class="mlg-pill">It hands that off to an actual <strong>solver</strong> — by default
+                            <strong>CBC</strong> (COIN-OR Branch and Cut), bundled with PuLP.
+                        </div>
+                        <div class="mlg-pill"><code>prob.solve()</code> calls CBC, waits for it to finish, and reads
+                            the
+                            result back into your Python variables via <code>.varValue</code>.</div>
+                        <div class="mlg-pill"><code>pulp.LpStatus[status]</code> tells you what CBC reported:
+                            <strong>Optimal</strong>, <strong>Infeasible</strong>, or <strong>Unbounded</strong>.
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Mapping code to math -->
+                <section>
+                    <h4>Our case in <span class="highlight">Math</span></h4>
+                    <div style="font-size:0.52em; text-align:left; margin-top:8px;">
+
+                        <!-- Objective Function -->
+                        <div class="mlg-pill" style="margin-bottom: 10px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <span style="flex-grow: 1; text-align: center;">
+                                    \[ \min \sum_{t \in T} \left( P_{\text{buy}, t} \cdot p_{\text{buy}, t} -
+                                    P_{\text{sell}, t} \cdot p_{\text{sell}, t} \right) \]
+                                </span>
+                            </div>
+                            <strong style="color:#56C556;">&rarr; This is the objective function.</strong>
+                            A sum of variables &times; constants &mdash; fully linear.
+                        </div>
+
+                        <!-- Energy Balance -->
+                        <div class="mlg-pill" style="margin-bottom: 10px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+
+                                <span style="flex-grow: 1; text-align: center;">
+                                    \[ PV_t + W_t + P_{\text{buy}, t} + P_{\text{discharge}, t} = D_t +
+                                    P_{\text{sell},
+                                    t} + P_{\text{charge}, t} \quad \forall t \in T \]
+                                </span>
+                            </div>
+                            <strong style="color:#c8a96e;">&rarr; Energy balance constraint.</strong>
+                            Repeated for every hour \( t \in T \).
+                        </div>
+
+                        <!-- Battery Dynamics -->
+                        <div class="mlg-pill" style="margin-bottom: 10px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+
+                                <span style="flex-grow: 1; text-align: center;">
+                                    \[ SoC_t = SoC_{t-1} + (P_{\text{charge}, t} \cdot \eta) -
+                                    \frac{P_{\text{discharge}, t}}{\eta} \quad \forall t \in T \]
+                                </span>
+                            </div>
+                            <strong style="color:#c8a96e;">&rarr; Battery dynamics constraint.</strong>
+                            Links hour \( t \) to hour \( t-1 \)
+                        </div>
+
+                    </div>
+                </section>
+
+                <section>
+                    <h4>Our case in <span class="highlight">Python</span></h4>
+                    <div style="font-size:0.52em; text-align:left; margin-top:8px;">
+
+                        <!-- Objective Function -->
+                        <div class="mlg-pill" style="margin-bottom: 10px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <code>prob += pulp.lpSum([P_buy[t]*price_buy_f[t] - P_sell[t]*price_sell_f[t] for t in times])</code>
+                            </div>
+                            <strong style="color:#56C556;">&rarr; This is the objective function.</strong>
+                            A sum of variables &times; constants &mdash; fully linear.
+                        </div>
+
+                        <!-- Energy Balance -->
+                        <div class="mlg-pill" style="margin-bottom: 10px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+
+                                <code>prob += (pv_f[t] + wind_f[t] + P_buy[t] + P_discharge[t] == demand_f[t] + P_sell[t] + P_charge[t])</code>
+                            </div>
+                            <strong style="color:#c8a96e;">&rarr; Energy balance constraint.</strong>
+                            Repeated for every hour \( t \in T \).
+                        </div>
+
+                        <!-- Battery Dynamics -->
+                        <div class="mlg-pill" style="margin-bottom: 10px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+
+                                <code>prob += (SoC[t] == SoC[t-1] + (P_charge[t] * eta) - (P_discharge[t] / eta))</code>
+                            </div>
+                            <strong style="color:#c8a96e;">&rarr; Battery dynamics constraint.</strong>
+                            Links hour \( t \) to hour \( t-1 \)
+                        </div>
+
+                    </div>
+                </section>
+
+                <section>
+                    <h4>Ok but... 24 hours?</h4>
+                    PuLP doesn't solve hour by hour. It sees the whole 24-hour problem as one big system of
+                    equations.
+                    <div class="mlg-pill" style="margin-bottom: 10px;"> The solver looks at the entire 24-hour
+                        horizon
+                        in a single mathematical step. It decides to
+                        charge the battery at 2:00 AM because it already sees the high prices at 2:00 PM and knows
+                        that
+                        is
+                        the globally optimal path to minimize total cost. </div>
+                </section>
             </section>
 
-            <!-- Slide 6d: Real-world deployments -->
             <section>
-                <h4>VPP — <span class="highlight">Real-World Deployments</span></h4>
-                <div style="font-size:0.6em; text-align:left; margin-top:8px;">
-                    <div class="mlg-pill"><strong>Next Kraftwerke (Germany)</strong> — Europe's largest VPP, >14 GW aggregated capacity from 13 000+ assets. Trades energy on 9 European spot markets in real-time.</div>
-                    <div class="mlg-pill"><strong>Tesla Autobidder (Australia)</strong> — Hornsdale Power Reserve (150 MW / 194 MWh BESS). Automated battery dispatch saved the Australian grid ~$150 M AUD in frequency regulation costs (2018–2020).</div>
-                    <div class="mlg-pill"><strong>Ørsted / Danish TSO</strong> — Offshore wind VPP that curtails or ramps turbines within seconds to balance the national grid; integrates weather-forecast ML models updated every 15 min.</div>
-                </div>
+                <section>
+                    <h3>Where to go from here</h3>
+                    <div class="mlg-pill" style="margin-bottom: 10px;">
+                        <strong style="color:#c8a96e;">Kafka</strong> to stream the data.
+                    </div>
+                    <div class="mlg-pill" style="margin-bottom: 10px;">
+                        <strong style="color:#c8a96e;">Time series database</strong> to store the data.
+                    </div>
+                    <div class="mlg-pill" style="margin-bottom: 10px;">
+                        <strong style="color:#c8a96e;">MLflow</strong> to handle the ML part.
+                    </div>
+                    <div class="mlg-pill" style="margin-bottom: 10px;">
+                        <strong style="color:#c8a96e;">Docker</strong> to package everything and deploy it to the cloud.
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Thank you for your attention</h2>
+                </section>
             </section>
 
-            <!-- Slide 7 -->
-            <section>
-                <h4>Let's Code!</h4>
-                <p>Open your Jupyter Notebooks.</p>
-                <p style="font-size: 0.7em; color: lightgray;">No deep programming experience required: we will tweak
-                    parameters, analyze the outputs together, and discuss the "What-Ifs".</p>
-            </section>
 
         </div>
     </div>
@@ -463,6 +1161,7 @@
             hash: true,
             transition: 'slide',
             progress: false,
+
         });
     </script>
 </body>
