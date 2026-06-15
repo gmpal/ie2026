@@ -1,1 +1,3 @@
 # ie2026
+
+You can find the original paper [here](https://www.researchgate.net/publication/404695034_VPP-Sim_A_Modular_Open-Source_Framework_for_Developing_and_Deploying_ML-Driven_Strategies_in_Virtual_Power_Plants?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSJ9fQ)
